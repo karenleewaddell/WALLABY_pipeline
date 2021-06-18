@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://aussrc.github.io/WALLABY_workflows/blog</id>
+    <id>https://aussrc.github.io/blog</id>
     <title>WALLABY Workflows Blog</title>
     <updated>2015-10-25T23:29:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://aussrc.github.io/WALLABY_workflows/blog"/>
+    <link rel="alternate" href="https://aussrc.github.io/blog"/>
     <subtitle>WALLABY Workflows Blog</subtitle>
-    <icon>https://aussrc.github.io/WALLABY_workflows/img/favicon.ico</icon>
+    <icon>https://aussrc.github.io/img/favicon.ico</icon>
 </feed>
