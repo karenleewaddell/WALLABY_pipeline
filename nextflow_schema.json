@@ -1,8 +1,8 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema",
     "$id": "https://github.com/AusSRC/WALLABY_workflows/master/nextflow_schema.json",
-    "title": "WALLABY workflow pipeline",
-    "description": "Pipeline execution tool for the WALLABY science team. Will run the entire workflow including downloading of footprints from CASDA, running linmos and source finding.",
+    "title": "WALLABY mosaicking pipeline",
+    "description": "Execution tool for the mosaicking component of the WALLABY nextflow pipeline. This will download footprints from CASDA, run linmos and generate a mosaicked image cube.",
     "type": "object",
     "definitions": {
         "environment": {
@@ -90,65 +90,14 @@
             },
             "required": [
             ]
-        },
-        "sofia": {
-            "title": "SoFiA",
-            "type": "object",
-            "description": "These credentials are required for every run of the full WALLABY pipeline.",
-            "default": "",
-            "properties": {
-                "SOFIA_RUN_NAME": {
-                    "type": "string",
-                    "description": "Name for this run of the WALLABY workflow",
-                    "default": "sofia"
-                },
-                "SOFIA_PARAMS_FILE": {
-                    "type": "string",
-                    "description": "Filename for the generated sofia parameter file",
-                    "default": "sofia.par"
-                }
-            },
-            "required": [
-                "SOFIA_RUN_NAME"
-            ]
-        },
-        "sofiax": {
-            "title": "SoFiAX",
-            "type": "object",
-            "description": "Parameters required for the execution of SoFiAX",
-            "default": "",
-            "properties": {
-                "DATABASE_HOST": {
-                    "type": "string",
-                    "description": "Hostname of the database to write SoFiA outputs"
-                },
-                "DATABASE_USER": {
-                    "type": "string",
-                    "description": "User for the database to write SoFiA outputs"
-                },
-                "DATABASE_USERNAME": {
-                    "type": "string",
-                    "description": "Username for database access"
-                },
-                "DATABASE_PASSWORD": {
-                    "type": "string",
-                    "description": "Password for database access"
-                }
-            },
-            "required": [
-                "DATABASE_HOST",
-                "DATABASE_USER",
-                "DATABASE_USERNAME",
-                "DATABASE_PASSWORD"
-            ]
         }
     },
     "allOf": [
         {
-            "$ref": "#/definitions/casda"
+            "$ref": "#/definitions/environment"
         },
         {
-            "$ref": "#/definitions/required"
+            "$ref": "#/definitions/casda"
         },
         {
             "$ref": "#/definitions/database"
