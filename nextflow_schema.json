@@ -57,9 +57,10 @@
                     "type": "string",
                     "description": "Hostname of the database to write SoFiA outputs"
                 },
-                "DATABASE_USER": {
+                "DATABASE_NAME": {
                     "type": "string",
-                    "description": "User for the database to write SoFiA outputs"
+                    "description": "Name of the database to write SoFiA outputs",
+                    "default": "sofiadb"
                 },
                 "DATABASE_USERNAME": {
                     "type": "string",
@@ -72,7 +73,7 @@
             },
             "required": [
                 "DATABASE_HOST",
-                "DATABASE_USER",
+                "DATABASE_NAME",
                 "DATABASE_USERNAME",
                 "DATABASE_PASSWORD"
             ]
