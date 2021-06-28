@@ -1,8 +1,8 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema",
     "$id": "https://github.com/AusSRC/WALLABY_workflows/master/nextflow_schema.json",
-    "title": "WALLABY mosaicking pipeline",
-    "description": "Execution tool for the mosaicking component of the WALLABY nextflow pipeline. This will download footprints from CASDA, run linmos and generate a mosaicked image cube.",
+    "title": "WALLABY workflow pipeline",
+    "description": "Pipeline execution tool for the WALLABY science team. Will run the entire workflow including downloading of footprints from CASDA, running linmos and source finding.",
     "type": "object",
     "definitions": {
         "environment": {
@@ -90,41 +90,93 @@
             },
             "required": [
             ]
-        }
-    },
-    "docker": {
-        "title": "Docker",
-        "type": "object",
-        "description": "Docker images to use for pipeline execution",
-        "default": "",
-        "properties": {
-            "WALLABY_COMPONENTS_IMAGE": {
-                "type": "string",
-                "description": "Docker image for component functions of the WALLABY workflow.",
-                "default": "aussrc/wallaby_scripts:latest"
-            },
-            "S2P_IMAGE": {
-                "type": "string",
-                "description": "Docker image for generation of sofia parameter and sofiax config files using s2p_setup.py.",
-                "default": "aussrc/s2p_setup:latest"
-            },
-            "SOFIA_IMAGE": {
-                "type": "string",
-                "description": "Docker image for the execution of sofia.",
-                "default": "astroaustin/sofiax:v0.0.5"
-            },
-            "SOFIAX_IMAGE": {
-                "type": "string",
-                "description": "Docker image for the execution of sofiax.",
-                "default": "aussrc/sofiax:latest"
-            }
         },
-        "required": [
-            "WALLABY_COMPONENTS_IMAGE",
-            "S2P_IMAGE",
-            "SOFIAX_IMAGE",
-            "SOFIA_IMAGE"
-        ]
+        "sofia": {
+            "title": "SoFiA",
+            "type": "object",
+            "description": "These credentials are required for every run of the full WALLABY pipeline.",
+            "default": "",
+            "properties": {
+                "SOFIA_RUN_NAME": {
+                    "type": "string",
+                    "description": "Name for this run of the WALLABY workflow",
+                    "default": "sofia"
+                },
+                "SOFIA_PARAMS_FILE": {
+                    "type": "string",
+                    "description": "Filename for the generated sofia parameter file",
+                    "default": "sofia.par"
+                }
+            },
+            "required": [
+                "SOFIA_RUN_NAME"
+            ]
+        },
+        "sofiax": {
+            "title": "SoFiAX",
+            "type": "object",
+            "description": "Parameters required for the execution of SoFiAX",
+            "default": "",
+            "properties": {
+                "DATABASE_HOST": {
+                    "type": "string",
+                    "description": "Hostname of the database to write SoFiA outputs"
+                },
+                "DATABASE_NAME": {
+                    "type": "string",
+                    "description": "Name of the database to write SoFiA outputs",
+                    "default": "sofiadb"
+                },
+                "DATABASE_USERNAME": {
+                    "type": "string",
+                    "description": "Username for database access"
+                },
+                "DATABASE_PASSWORD": {
+                    "type": "string",
+                    "description": "Password for database access"
+                }
+            },
+            "required": [
+                "DATABASE_HOST",
+                "DATABASE_NAME",
+                "DATABASE_USERNAME",
+                "DATABASE_PASSWORD"
+            ]
+        },
+        "docker": {
+            "title": "Docker",
+            "type": "object",
+            "description": "Docker images to use for pipeline execution",
+            "default": "",
+            "properties": {
+                "WALLABY_COMPONENTS_IMAGE": {
+                    "type": "string",
+                    "description": "Docker image for component functions of the WALLABY workflow.",
+                    "default": "aussrc/wallaby_scripts:latest"
+                },
+                "S2P_IMAGE": {
+                    "type": "string",
+                    "description": "Docker image for generation of sofia parameter and sofiax config files using s2p_setup.py.",
+                    "default": "aussrc/s2p_setup:latest"
+                },
+                "SOFIA_IMAGE": {
+                    "type": "string",
+                    "description": "Docker image for the execution of sofia.",
+                    "default": "astroaustin/sofiax:v0.0.5"
+                },
+                "SOFIAX_IMAGE": {
+                    "type": "string",
+                    "description": "Docker image for the execution of sofiax.",
+                    "default": "aussrc/sofiax:latest"
+                }
+            },
+            "required": [
+                "WALLABY_COMPONENTS_IMAGE",
+                "S2P_IMAGE",
+                "SOFIAX_IMAGE",
+                "SOFIA_IMAGE"
+            ]
+        }
     },
     "allOf": [
         {
@@ -135,12 +187,6 @@
         },
         {
             "$ref": "#/definitions/linmos"
-        },
-        {
-            "$ref": "#/definitions/sofia"
-        },
-        {
-            "$ref": "#/definitions/sofiax"
         },
         {
             "$ref": "#/definitions/docker"
