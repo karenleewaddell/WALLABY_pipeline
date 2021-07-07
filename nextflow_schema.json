@@ -91,68 +91,10 @@
             "required": [
             ]
         },
-        "sofia": {
-            "title": "SoFiA",
-            "type": "object",
-            "description": "These credentials are required for every run of the full WALLABY pipeline.",
-            "default": "",
-            "properties": {
-                "SOFIA_RUN_NAME": {
-                    "type": "string",
-                    "description": "Name for this run of the WALLABY workflow",
-                    "default": "sofia"
-                },
-                "SOFIA_PARAMS_FILE": {
-                    "type": "string",
-                    "description": "Filename for the generated sofia parameter file",
-                    "default": "sofia.par"
-                }
-            },
-            "required": [
-                "SOFIA_RUN_NAME"
-            ]
-        },
-        "sofiax": {
-            "title": "SoFiAX",
-            "type": "object",
-            "description": "Parameters required for the execution of SoFiAX",
-            "default": "",
-            "properties": {
-                "SOFIAX_CONFIG_FILE": {
-                    "type": "string",
-                    "description": "Filename and path for the automatically generated sofiax configuration file",
-                    "default": "config.ini"
-                },
-                "DATABASE_HOST": {
-                    "type": "string",
-                    "description": "Hostname of the database to write SoFiA outputs"
-                },
-                "DATABASE_NAME": {
-                    "type": "string",
-                    "description": "Name of the database to write SoFiA outputs",
-                    "default": "sofiadb"
-                },
-                "DATABASE_USER": {
-                    "type": "string",
-                    "description": "Username for database access"
-                },
-                "DATABASE_PASS": {
-                    "type": "string",
-                    "description": "Password for database access"
-                }
-            },
-            "required": [
-                "SOFIAX_CONFIG_FILE",
-                "DATABASE_HOST",
-                "DATABASE_NAME",
-                "DATABASE_USER",
-                "DATABASE_PASS"
-            ]
-        },
         "docker": {
             "title": "Docker",
             "type": "object",
-            "description": "Docker images to use for pipeline execution",
+            "description": "Docker images to use for pipeline execution.",
             "default": "",
             "properties": {
                 "WALLABY_COMPONENTS_IMAGE": {
