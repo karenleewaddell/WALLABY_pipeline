@@ -91,8 +91,6 @@ process sofia {
 
 // Join parameter files into single string
 process params_string_join {
-    container = "python:3.8-slim"
-
     input:
         val param_files
     
