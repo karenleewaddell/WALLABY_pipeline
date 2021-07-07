@@ -93,7 +93,7 @@
                 "WALLABY_COMPONENTS_IMAGE": {
                     "type": "string",
                     "description": "Docker image for component functions of the WALLABY workflow.",
-                    "default": "aussrc/wallaby_scripts:latest"
+                    "default": "aussrc/wallaby_scripts:v0.1.0"
                 },
                 "S2P_IMAGE": {
                     "type": "string",
@@ -326,10 +326,6 @@
                 "SOFIA_PARAMETER_OFFSET": {
                     "type": "string",
                     "default": "false"
-                },
-                "SOFIA_OUTPUT_DIRECTORY": {
-                    "type": "string",
-                    "default": ""
                 },
                 "SOFIA_OUTPUT_FILENAME": {
                     "type": "string",
