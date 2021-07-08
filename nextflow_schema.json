@@ -100,7 +100,7 @@
                 "WALLABY_COMPONENTS_IMAGE": {
                     "type": "string",
                     "description": "Docker image for component functions of the WALLABY workflow.",
-                    "default": "aussrc/wallaby_scripts:latest"
+                    "default": "aussrc/wallaby_scripts:v0.1.1"
                 },
                 "S2P_IMAGE": {
                     "type": "string",
