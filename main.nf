@@ -8,6 +8,6 @@ workflow {
     files = Channel.of(params.IMAGE_CUBES.split(','))
 
     main:
-        mosaicking(files)
+        mosaicking(files.collect())
         source_finding(mosaicking.out.cube)
 }
